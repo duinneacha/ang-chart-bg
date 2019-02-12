@@ -16,30 +16,88 @@ export class LineChartScatterComponent implements OnInit {
   private coords = this.xAxis.map( (v,i) => ({ x: v, y: this.yAxis[i] }) );
 
   public lineChartLabelsScatter = ['Q1', 'Q2', 'Q3', 'Q4'];
-  public lineChartDataScatter = [
+  public lineChartDataScatter = [{ 
+    showLine: false, 
+    backgroundColor: 'black', 
+    data: this.coords,
+    lineTension: 0.1, 
+    label: 'Ssample Scatter Data' }]
     // { data: [{x: -10, y: 0}, {x: 40,y: 20}, {x: 30,y: 15}, {x: 1, y: 5}, {x: 12, y: 2}, {x: 23, y: 5}, {x: 1, y: 15}, {x: 23,y: 15}, {x: 33,y: 22}, {x: 12,y: 25}, {x: 23,y: 3}, {x: 11, y: 11}], label: '2017' },
-    { xAxisID: "x-axis-1", data: this.coords, label: 'Ssample Scatter Data', 
-    options: {
-      scales: {
-          xAxes: [{
-              type: 'linear',
-              position: 'bottom'
-          }]},}
-        }
-  ];
+    
+    
+    
+  //   options: {
+  //     scales: {
+  //         xAxes: [{
+  //             type: 'linear',
+  //             position: 'bottom'
+  //         }]},}
+  //       }
+  // ];
 
  
-  public lineChartOptionsScatter = {
-    options: {
-      scales: {
-          xAxes: [{
-              type: 'linear',
-              position: 'bottom'
-          }]
-      }
-  }
+  // public lineChartOptionsScatter = {
+  //   options: {
+  //     scales: {
+  //         xAxes: [{
+  //             type: 'linear',
+  //             position: 'bottom'
+  //         }]
+  //     }
+  // }
   
-  }
+  // }
+
+public lineChartOptionsScatter = {
+  tooltips: {
+    mode: 'index',
+    intersect: true
+  },
+  scales: {
+    // xAxes: [{
+    //   ticks: {
+    //       beginAtZero: true,
+    //       max: 8
+    //   },
+    //   type: 'linear',
+    //   position: 'bottom'
+    // }],
+  //   yAxes: [{
+  //     ticks: {
+  //         beginAtZero: true,
+  //         max: 16
+  //     }
+  // }]
+
+    xAxes: [{
+      ticks: {
+        autoSkip: true,
+        beginAtZero: false
+      },
+      type: 'linear',
+      position: 'bottom',
+      scaleLabel: {
+        labelString: 'ADADADA',
+        display: true
+      }
+
+    }],
+
+    yAxes: [{
+      type: 'linear',
+      position: 'left',
+      ticks: {
+        beginAtZero: true
+      }
+    }]
+}
+  //   ticks: {
+  //     beginAtZero: true,
+    
+  //   },
+  //   type: 'linear'
+  // }
+}
 
 
   public lineChartTypeScatter = 'scatter';
